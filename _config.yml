@@ -22,13 +22,29 @@ github_username:  jeremyzilar
 
 # Build settings
 markdown: kramdown
+kramdown:
+  input: GFM
+  hard_wrap: false
+  syntax_highlighter: rouge
+  
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
 
 sass:
     sass_dir: _sass
+    style: compressed
+    load_paths:
+      - _sass
+      - node_modules
 
+# Collections
+collections:
+  posts:
+    output: true
+    permalink: /:year/:month/:day/:title/
 
 defaults:
   -
@@ -42,11 +58,19 @@ defaults:
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - package.json
+  - package-lock.json
+  - yarn.lock
+  - README.md
+  - docs/
+  - tailwind.config.js
+  - postcss.config.js
+  - assets/css/input.css
